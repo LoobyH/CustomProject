@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+Properties props = new Properties()
+props.load(new FileInputStream(file(rootProject.file("signing.properties"))))
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId "com.goldmantis.wb.viewdemo"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        ndk {
+            // 指定要ndk需要兼容的架构(这样其他依赖包里mips,x86,armeabi,arm-v8之类的so会被过滤掉)
+            abiFilters "armeabi-v7a", "armeabi"
+        }
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+
+    signingConfigs {
+        release {
+            keyAlias props['signing.alias']
+            keyPassword props['signing.password']
+            storeFile file(rootProject.file("debug.keystore"))
+            storePassword props['signing.password']
+        }
+
+        debug {
+            keyAlias props['signing.jjdxm_alias']
+            keyPassword props['signing.jjdxm_password']
+            storeFile file(rootProject.file("debug.keystore"))
+            storePassword props['signing.jjdxm_password']
+        }
+
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:'+rootProject.ext.supportVersion
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:design:'+rootProject.ext.supportVersion
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.google.guava:guava:16.0.1'
+    compile 'com.android.support:recyclerview-v7:'+rootProject.ext.supportVersion
+}

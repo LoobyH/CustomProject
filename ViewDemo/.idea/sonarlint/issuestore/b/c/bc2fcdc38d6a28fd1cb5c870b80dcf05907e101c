@@ -1,0 +1,5 @@
+
+rsquid:S1450"XRemove the "viewPager" field and declare it as a local variable in the relevant methods.(åÙ¬Ïûÿÿÿÿ
+rsquid:S1450"XRemove the "indicator" field and declare it as a local variable in the relevant methods.(ÉÊ¿Þùÿÿÿÿ
+vsquid:S1450"aRemove the "indicatorViewPager" field and declare it as a local variable in the relevant methods.(ö…âŒ
+rsquid:S1488"]Immediately return this expression instead of assigning it to the temporary variable "width".(šéÿ¦
