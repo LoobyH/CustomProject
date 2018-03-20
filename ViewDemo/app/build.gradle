@@ -5,16 +5,25 @@ props.load(new FileInputStream(file(rootProject.file("signing.properties"))))
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+
+        // Move the tests to tests/java, tests/res, etc...
+        instrumentTest.setRoot('tests')
+    }
     defaultConfig {
         applicationId "com.goldmantis.wb.viewdemo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
-        ndk {
-            // 指定要ndk需要兼容的架构(这样其他依赖包里mips,x86,armeabi,arm-v8之类的so会被过滤掉)
-            abiFilters "armeabi-v7a", "armeabi"
-        }
+//        ndk {
+//            // 指定要ndk需要兼容的架构(这样其他依赖包里mips,x86,armeabi,arm-v8之类的so会被过滤掉)
+//            abiFilters "armeabi-v7a", "armeabi"
+//        }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -30,22 +39,6 @@ android {
 
     }
 
-    signingConfigs {
-        release {
-            keyAlias props['signing.alias']
-            keyPassword props['signing.password']
-            storeFile file(rootProject.file("debug.keystore"))
-            storePassword props['signing.password']
-        }
-
-        debug {
-            keyAlias props['signing.jjdxm_alias']
-            keyPassword props['signing.jjdxm_password']
-            storeFile file(rootProject.file("debug.keystore"))
-            storePassword props['signing.jjdxm_password']
-        }
-
-    }
 }
 
 dependencies {
@@ -53,10 +46,18 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:'+rootProject.ext.supportVersion
+    compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportVersion
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:design:'+rootProject.ext.supportVersion
+    compile 'com.android.support:design:' + rootProject.ext.supportVersion
     compile 'com.squareup.okhttp:okhttp:2.0.0'
     compile 'com.google.guava:guava:16.0.1'
-    compile 'com.android.support:recyclerview-v7:'+rootProject.ext.supportVersion
+    compile 'com.android.support:recyclerview-v7:' + rootProject.ext.supportVersion
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.google.zxing:core:3.3.0'
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4'
+    //没有使用特殊Header，可以不加这行
+    compile 'com.android.support:support-v4:' + rootProject.ext.supportVersion
+
 }
