@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">YAL</string>
 
+    <string name="home">主页</string>
+    <string name="theme">主题</string>
+    <string name="style">风格</string>
+    <string name="funtion">功能</string>
+
     <string name="title_main">高德定位SDK功能展示</string>
 
     <string name="title_location">获取定位数据</string>

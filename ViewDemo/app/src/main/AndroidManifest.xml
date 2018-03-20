@@ -81,7 +81,8 @@
         android:supportsRtl="true"
         android:theme="@style/MainTheme">
         <!--<activity android:name=".activitys.ViewPageActivity">-->
-        <activity android:name="com.goldmantis.wb.viewdemo.activitys.RootActivity">
+        <!--<activity android:name="com.goldmantis.wb.viewdemo.activitys.RootActivity">-->
+        <activity android:name="com.goldmantis.wb.viewdemo.RestMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
