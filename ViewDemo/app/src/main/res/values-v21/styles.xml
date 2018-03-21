@@ -8,7 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="customstyle">@style/AppTheme2</item>
     </style>
-    <style name="customtheme" parent="Theme.AppCompat.Light.NoActionBar">
 
+    <style name="customtheme" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
+
+
 </resources>

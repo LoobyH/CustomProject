@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.goldmantis.wb.viewdemo.activitys.MapGaoDe.LocationModeSourceActivity;
+import com.goldmantis.wb.viewdemo.activitys.MapGaoDe.LocationModeSourceActivity_Old;
+import com.goldmantis.wb.viewdemo.activitys.MapGaoDe.StartActivity;
+
 /**
  * Created by J!nl!n on 2017/3/9.
  */
@@ -17,7 +21,10 @@ public class RootActivity extends ListActivity {
             VLayoutActivity.class.getSimpleName(),
             MainsActivity.class.getSimpleName(),
             TestActivity.class.getSimpleName(),
-            OnePlusNLayoutActivity.class.getSimpleName()
+            OnePlusNLayoutActivity.class.getSimpleName(),
+            StartActivity.class.getSimpleName(),
+            LocationModeSourceActivity.class.getSimpleName()
+
     };
 
     private Class[] mActivities = new Class[]{
@@ -25,6 +32,8 @@ public class RootActivity extends ListActivity {
             MainsActivity.class,
             TestActivity.class,
             OnePlusNLayoutActivity.class,
+            StartActivity.class,
+            LocationModeSourceActivity.class
     };
 
     @Override

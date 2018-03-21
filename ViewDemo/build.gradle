@@ -20,11 +20,11 @@ allprojects {
 
 ext {
     //全局变量控制，可在module中的build.gradle文件通过rootProject.ext.xxx开头来使用
-    compileSdkVersion = 25
-    buildToolsVersion = '25.0.2'
-    supportVersion = '25.3.1'
+    compileSdkVersion = 26
+    buildToolsVersion = '26.0.0'
+    supportVersion = '26.0.0-alpha1'
     //主程序版本
-    targetSdkVersion = 25
+    targetSdkVersion = 22
     minSdkVersion = 16
     versionCode = 1
     versionName = "v1.0.0"
