@@ -22,12 +22,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        debug {
-            signingConfig signingConfigs.debug
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-
     }
 
     signingConfigs {
@@ -36,13 +30,6 @@ android {
             keyPassword props['signing.password']
             storeFile file(rootProject.file("debug.keystore"))
             storePassword props['signing.password']
-        }
-
-        debug {
-            keyAlias props['signing.jjdxm_alias']
-            keyPassword props['signing.jjdxm_password']
-            storeFile file(rootProject.file("debug.keystore"))
-            storePassword props['signing.jjdxm_password']
         }
 
     }
@@ -59,4 +46,5 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.0.0'
     compile 'com.google.guava:guava:16.0.1'
     compile 'com.android.support:recyclerview-v7:'+rootProject.ext.supportVersion
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
 }
