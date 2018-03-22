@@ -57,10 +57,10 @@ public class RestMainActivity extends AppCompatActivity {
 
     private void initTab() {
         mTabhost.setup(this,getSupportFragmentManager(),R.id.rm_vp_ay);
-        TabModel tabmain = new TabModel(R.string.home, R.mipmap.img_default, FunctionFragment.class);
-        TabModel tabcontact = new TabModel(R.string.theme, R.mipmap.project_remind, Function1Fragment.class);
-        TabModel tabmine = new TabModel(R.string.style, R.mipmap.project_remind, Function2Fragment.class);
-        TabModel tabfound = new TabModel(R.string.funtion, R.mipmap.img_default, Function3Fragment.class);
+        TabModel tabmain = new TabModel(R.string.home, R.mipmap.home_s, FunctionFragment.class);
+        TabModel tabcontact = new TabModel(R.string.theme, R.mipmap.entrepot_s, Function1Fragment.class);
+        TabModel tabmine = new TabModel(R.string.style, R.mipmap.message_s, Function2Fragment.class);
+        TabModel tabfound = new TabModel(R.string.funtion, R.mipmap.user_center_s, Function3Fragment.class);
         list.add(tabmain);
         list.add(tabcontact);
         list.add(tabmine);
