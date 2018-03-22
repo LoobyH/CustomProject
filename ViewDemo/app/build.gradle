@@ -31,14 +31,17 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        debug {
-            signingConfig signingConfigs.debug
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+
+    signingConfigs {
+        release {
+            keyAlias props['signing.alias']
+            keyPassword props['signing.password']
+            storeFile file(rootProject.file("debug.keystore"))
+            storePassword props['signing.password']
         }
 
     }
-
 }
 
 dependencies {
@@ -51,6 +54,8 @@ dependencies {
     compile 'com.android.support:design:' + rootProject.ext.supportVersion
     compile 'com.squareup.okhttp:okhttp:2.0.0'
     compile 'com.google.guava:guava:16.0.1'
+    compile 'com.android.support:recyclerview-v7:'+rootProject.ext.supportVersion
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
     compile 'com.android.support:recyclerview-v7:' + rootProject.ext.supportVersion
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.jakewharton:butterknife:7.0.1'
@@ -59,5 +64,4 @@ dependencies {
     compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4'
     //没有使用特殊Header，可以不加这行
     compile 'com.android.support:support-v4:' + rootProject.ext.supportVersion
-
 }
