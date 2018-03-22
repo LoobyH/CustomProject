@@ -1,9 +1,13 @@
 package com.goldmantis.wb.viewdemo;
 
+import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -57,10 +61,10 @@ public class RestMainActivity extends AppCompatActivity {
 
     private void initTab() {
         mTabhost.setup(this,getSupportFragmentManager(),R.id.rm_vp_ay);
-        TabModel tabmain = new TabModel(R.string.home, R.mipmap.home_s, FunctionFragment.class);
-        TabModel tabcontact = new TabModel(R.string.theme, R.mipmap.entrepot_s, Function1Fragment.class);
-        TabModel tabmine = new TabModel(R.string.style, R.mipmap.message_s, Function2Fragment.class);
-        TabModel tabfound = new TabModel(R.string.funtion, R.mipmap.user_center_s, Function3Fragment.class);
+        TabModel tabmain = new TabModel(R.string.home, R.drawable.tab_home_slc, FunctionFragment.class);
+        TabModel tabcontact = new TabModel(R.string.theme, R.drawable.tab_theme_slc, Function1Fragment.class);
+        TabModel tabmine = new TabModel(R.string.style, R.drawable.tab_style_slc, Function2Fragment.class);
+        TabModel tabfound = new TabModel(R.string.funtion, R.drawable.tab_funtion_slc, Function3Fragment.class);
         list.add(tabmain);
         list.add(tabcontact);
         list.add(tabmine);
@@ -99,13 +103,23 @@ public class RestMainActivity extends AppCompatActivity {
     private View getItemView(TabModel tab) {
        View  view = inflater.inflate(R.layout.view_tab_content, null);
 
-        ImageView img = (ImageView) view.findViewById(R.id.tab_imageview);
+//        ImageView img = (ImageView) view.findViewById(R.id.tab_imageview);
         TextView textview = (TextView) view.findViewById(R.id.tab_textview);
+        Drawable drawable = ContextCompat.getDrawable(getContext(),tab.getImg());
+        int tabImgSize = getResources().getDimensionPixelSize(R.dimen.dp_20);
+//        int tabPdSize = getResources().getDimensionPixelSize(R.dimen.dp_8);
+        drawable.setBounds(0,0,tabImgSize,tabImgSize);
 
-        img.setImageResource(tab.getImg());
+//        img.setImageResource(tab.getImg());
         textview.setText(tab.getTitle());
+        textview.setCompoundDrawables(null,drawable,null,null);
+//        textview.setCompoundDrawablePadding(tabPdSize);
 
         return view;
+    }
+
+    private Context getContext(){
+        return this;
     }
 
 }
