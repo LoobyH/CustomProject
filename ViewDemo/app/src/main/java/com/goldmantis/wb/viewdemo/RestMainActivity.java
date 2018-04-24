@@ -3,6 +3,7 @@ package com.goldmantis.wb.viewdemo;
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -114,6 +115,9 @@ public class RestMainActivity extends AppCompatActivity {
         textview.setText(tab.getTitle());
         textview.setCompoundDrawables(null,drawable,null,null);
 //        textview.setCompoundDrawablePadding(tabPdSize);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.ECLAIR_MR1) {
+
+        }
 
         return view;
     }
@@ -121,5 +125,7 @@ public class RestMainActivity extends AppCompatActivity {
     private Context getContext(){
         return this;
     }
+
+
 
 }

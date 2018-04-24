@@ -3,10 +3,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.goldmantis.wb.viewdemo.view.custom.ClockView
+    <!--<com.goldmantis.wb.viewdemo.view.custom.ClockView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"/>-->
+    <!--<com.goldmantis.wb.viewdemo.view.SClockView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>-->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="120dp"

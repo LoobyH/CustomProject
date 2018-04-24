@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+    <item android:drawable="@mipmap/customer_fenpei_icon"
+          android:duration="1000"/>
+    <item android:drawable="@mipmap/customer_genjin_icon"
+          android:duration="1000"/>
+    <item android:drawable="@mipmap/customer_guaqi_icon"
+          android:duration="1000"/>
+    <item android:drawable="@mipmap/customer_yidaodian_icon"
+          android:duration="1000"/>
+    <item android:drawable="@mipmap/customer_jiechuguaqi_icon"
+          android:duration="1000"/>
+    <item android:drawable="@mipmap/customer_cfenpei_icon"
+          android:duration="1000"/>
+    <item android:drawable="@mipmap/customer_shenqingoff_icon"
+          android:duration="1000"/>
+    <item android:drawable="@mipmap/customer_shoukuan_icon"
+          android:duration="1000"/>
+    <item android:drawable="@mipmap/customer_wuxiao_icon"
+          android:duration="1000"/>
+    <item android:drawable="@mipmap/customer_yanchiguaqi_icon"
+          android:duration="1000"/>
+
+</animation-list>

@@ -30,7 +30,18 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String','BASE_URL',BASE_URL_RELEASE
+            buildConfigField 'String','IMAGE_URL',IMAGE_URL_RELEASE
+            buildConfigField 'boolean','IS_TEST','false'
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "release" ,JPUSH_APPKEY_VALUE: JPUSH_KEY_TEST]
         }
+        debug {
+            buildConfigField 'String','BASE_URL',BASE_URL_DEBUG
+            buildConfigField 'String','IMAGE_URL',IMAGE_URL_RELEASE
+            buildConfigField 'boolean','IS_TEST','true'
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "debug" ,JPUSH_APPKEY_VALUE: JPUSH_KEY_TEST]
+        }
+
     }
 
     signingConfigs {
@@ -42,6 +53,40 @@ android {
         }
 
     }
+//    buildToolsVersion '26.0.2'
+    //修改生成的apk名字及输出文件夹
+     applicationVariants.all {
+         variant ->
+             variant.outputs.each { output ->
+                 //新名字
+                 def newName
+                 //时间戳
+                 def timeNow
+                 //输出文件夹
+                 def outDirectory
+                 //是否为Jenkins打包，输出路径不同
+                 if ("true".equals("IS_JENKINS")) {
+                     //BUILD_PATH为服务器输出路径
+                     timeNow = BUILD_TIME
+                     outDirectory = "BUILD_PATH_JENKINS"
+                     //xx-v1.0.1-release.apk
+                     newName = APPNAME+'-v'+APP_VERSION + '-'+variant.productFlavors[0].name +'-' + variant.buildType.name + '.apk'
+                     output.outputFile = new File(outDirectory+"/"+timeNow, newName)
+                 } else {
+                     //本机打包输出在本机路径
+                     outDirectory = "BUILD_PATH_LOCAL"
+                     if ("debug".equals(variant.buildType.name)){
+                         newName = APPNAME+'-'+APP_VERSION + '-' + variant.buildType.name +'.apk'
+//                         newName = variant.buildType.name +'.apk'
+                     }else {
+                         newName = APPNAME+'-'+APP_VERSION + '-' + variant.buildType.name +'-'+"getDate()"+ '.apk'
+                     }
+                     output.outputFile = new File(outDirectory, newName)
+                 }
+             }
+     }
+
+
 }
 
 dependencies {

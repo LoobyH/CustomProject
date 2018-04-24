@@ -22,14 +22,14 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-//        new Timer().schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//                Intent inRM= new Intent();
-//                inRM.setClass(getContext(), RestMainActivity.class);
-//                startActivity(inRM);
-//            }
-//        },3000);
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Intent inRM= new Intent();
+                inRM.setClass(getContext(), RestMainActivity.class);
+                startActivity(inRM);
+            }
+        },3000);
     }
 
     private Context getContext(){
