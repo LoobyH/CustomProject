@@ -5,6 +5,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.MainThread;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
@@ -58,6 +59,9 @@ public class RestMainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         inflater = LayoutInflater.from(this);
         initTab();
+        if (Thread.currentThread() instanceof MainThread){
+
+        }
     }
 
     private void initTab() {
