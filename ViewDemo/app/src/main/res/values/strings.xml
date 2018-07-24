@@ -5,6 +5,8 @@
     <string name="theme">主题</string>
     <string name="style">风格</string>
     <string name="funtion">功能</string>
+    <string name="libraly">开源库</string>
+    <string name="vadio">视频</string>
 
     <string name="title_main">高德定位SDK功能展示</string>
 

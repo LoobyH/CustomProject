@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/color_yellow_kind</item>
+        <item name="colorPrimary">@color/color_yellow_d3</item>
+        <item name="colorPrimaryDark">@color/color_gery_d5</item>
+        <item name="colorAccent">@color/blue</item>
+        <item name="android:colorButtonNormal">@color/color_gery_d2</item>
+        <item name="android:windowBackground">@color/color_gery_d1</item>
+        <item name="android:colorControlHighlight">@color/color_yellow_d1</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>

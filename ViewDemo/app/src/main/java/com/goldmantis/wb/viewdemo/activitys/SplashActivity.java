@@ -20,16 +20,10 @@ import java.util.TimerTask;
 public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+//        getWindow().getDecorView().setBackgroundResource(R.mipmap.icon_span_background);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        new Timer().schedule(new TimerTask() {
-            @Override
-            public void run() {
-                Intent inRM= new Intent();
-                inRM.setClass(getContext(), RestMainActivity.class);
-                startActivity(inRM);
-            }
-        },3000);
+//        },3000);
     }
 
     private Context getContext(){

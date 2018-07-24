@@ -21,9 +21,14 @@
 
     <style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--<item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/color_yellow_kind</item>
+        <item name="android:windowBackground">@color/black</item>-->
+        <item name="colorPrimary">@color/color_yellow_d3</item>
+        <item name="colorPrimaryDark">@color/color_gery_d5</item>
+        <item name="colorAccent">@color/blue</item>
+        <item name="android:windowBackground">@color/color_gery_d1</item>
     </style>
 
 
@@ -35,6 +40,13 @@
         <item name="android:gravity">center</item>
         <item name="android:textColor">#ffffff</item>
         <item name="android:background">#33000000</item>
+    </style>
+    <style name="spanTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_yellow_d3</item>
+        <item name="colorPrimaryDark">@color/color_gery_d5</item>
+        <item name="colorAccent">@color/blue</item>
+        <item name="android:windowBackground">@mipmap/icon_span_background</item>
+
     </style>
 
 </resources>

@@ -82,7 +82,8 @@
         android:theme="@style/MainTheme">
         <!--<activity android:name=".activitys.ViewPageActivity">-->
         <!--<activity android:name="com.goldmantis.wb.viewdemo.activitys.RootActivity">-->
-        <activity android:name="com.goldmantis.wb.viewdemo.activitys.SplashActivity">
+        <activity android:name="com.goldmantis.wb.viewdemo.activitys.SplashActivity"
+            android:theme="@style/spanTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -95,6 +96,8 @@
 
         <activity android:name=".RestMainActivity"
             android:screenOrientation="portrait"
+            android:overScrollMode="never"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:label="@string/app_name"/>
 
 
